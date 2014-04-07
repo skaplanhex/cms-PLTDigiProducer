@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 #include "SimDataFormats/TrackingHit/interface/PSimHitContainer.h"
 #include "DataFormats/HepMCCandidate/interface/GenParticle.h"
 #include "DataFormats/HepMCCandidate/interface/GenParticleFwd.h"
@@ -12,8 +13,7 @@
 *                                                      *
 ********************************************************/
 
-class PLTDigi
-{
+class PLTDigi {
   public:
     PLTDigi(void) { }
     PLTDigi(int rowNum, int columnNum, int pulseHeightAmt):
@@ -22,9 +22,9 @@ class PLTDigi
       pulseHeight(pulseHeightAmt)
       { }
     //initialize from a simhit
-    // PLTDigi(PSimHit pltHit) {
+     // PLTDigi(PSimHit pltHit) {
 
-    // }
+     // }
 
     int getRow() {return row;}
     int getColumn() {return column;}
@@ -32,6 +32,7 @@ class PLTDigi
     void setRow(int rowNum) {row = rowNum;}
     void setColumn(int columnNum) {column = columnNum;}
     void setPulseHeight(int pulseHeightAmt) {pulseHeight = pulseHeightAmt;}
+    void print() {std::cout << "row: " << row << " column: " << column << " pulse height: " << pulseHeight << std::endl; }
 
   private:
     int row;
